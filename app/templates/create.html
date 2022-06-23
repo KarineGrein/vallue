@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  <!-- Custom styles for this template -->
+    <link href="/static/css/create.css" rel="stylesheet">
+
+<body class="text-center">
+
+<main class="form-signin">
+
+    <form name="form-users" id="formUsers" method="post" action="/store/">
+            {% if msg %}
+                <div class="alert {{class}}">
+                    {{msg}}
+                </div>
+            {% endif %}
+
+        {% csrf_token %}
+
+    <h1 class="h3 mb-3 fw-normal">Cadastre-se</h1>
+
+    <div class="form-floating">
+        <input class="form-control mt-2" type="text" name="name" id="name" placeholder="Nome:">
+       <label for="user">Nome</label>
+    </div>
+    <div class="form-floating">
+        <input class="form-control mt-2" type="text" name="user" id="user" placeholder="Nome do Usuário:">
+      <label for="user">Nome Usuário</label>
+    </div>
+    <div class="form-floating">
+        <input class="form-control mt-2" type="password" name="password" id="password" placeholder="Senha:">
+      <label for="password">Senha</label>
+    </div>
+     <div class="form-floating">
+        <input class="form-control mt-2" type="password" name="password-conf" id="password-conf" placeholder="Repita a Senha:">
+      <label for="password">Repetir Senha</label>
+    </div>
+         <div class="form-floating">
+        <input class="form-control mt-2" type="email" name="email" id="email" placeholder="Email:">
+      <label for="password">Email</label>
+    </div>
+       <input class="btn btn-dark mt-2" type="submit" value="Cadastrar" >
+        <p class="mt-5 mb-3 text-muted">&copy; 2022 Brasil</p>
+    </form>
+{% endblock %}

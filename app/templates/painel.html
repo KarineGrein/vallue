@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<!-- Custom styles for this template -->
+    <link href="/static/css/signin.css" rel="stylesheet">
+
+ <body class="text-center">
+<main class="form-signin">
+
+    <form name="formPainel" id="formPainel" method="post" action="/dologin/">
+            {% if msg %}
+                <div class="alert {{class}}">
+                    {{msg}}
+                </div>
+            {% endif %}
+
+            {% csrf_token %}
+
+     <h1 class="h3 mb-3 fw-normal">Entre com sua conta</h1>
+
+     <div class="form-floating">
+        <input class="form-control mt-2" type="text" name="user" id="user" placeholder="Nome do Usuário:">
+        <label for="user">Nome Usuário</label>
+     </div>
+     <div class="form-floating">
+        <input class="form-control mt-2" type="password" name="password" id="password" placeholder="Senha:">
+        <label for="password">Senha</label>
+     </div>
+
+     <div class="checkbox mb-3">
+        <label>
+        <input type="checkbox" value="remember-me"> Lembrar senha
+        </label>
+     </div>
+       <input class="w-100 btn btn-lg btn-primary" type="submit" value="Entrar" >
+        <p class="mt-3 mb-3 text-muted">&copy; 2022 Brasil</p>
+    </form>
+</main>
+
+ </body>
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends 'main.html' %}
+
+{% block content %}
+   {% if request.user.is_authenticated %}
+
+{% else %}
+     Voce não tem acesso a essa área!
+   {% endif %}
+
+<style>
+@import url('https://font.googlepis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+ position: relative;
+ min-height: 100vh;
+ width: 100%;
+ overflow: hidden;
+}
+
+.navigation
+{
+ position: fixed;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 240px;
+ background: #4d5bf9;
+ padding: 6px 14px;
+}
+
+.navigation .logo_content .logo
+{
+ color: #fff;
+ display: flex;
+ height: 50px;
+ width: 100%;
+ align-items: center;
+}
+
+.logo_content .logo i
+{
+ font-size: 28px;
+ margin-right: 12px;
+}
+
+.logo_content .logo .logo_name
+{
+ font-size: 30px;
+ font_weight: 400;
+}
+
+.navigation ul
+{
+ margin-top: 20px;
+ padding-left: 0;
+}
+
+.navigation ul li
+{
+ position: relative;
+ height: 60px;
+ width: 100%;
+ margin: 0 5px;
+ list-style: none;
+ line-height: 50px;
+
+}
+
+.navigation ul li a
+{
+ color: #fff;
+ display: flex;
+ align-items: center;
+ text-decoration: none;
+ transition: all 0.4s ease;
+ border-radius: 50px;
+
+}
+
+.navigation ul li a:hover
+{
+ color: #11101d;
+ background: #fff;
+}
+}
+
+.navigation ul li a .icon
+{
+ height: 50px;
+ min-width: 50px;
+ border-radius: 12px;
+ line-height: 50px;
+ text-align: center;
+}
+
+.navigation ul li a .icon i
+{
+ font-size: 1.5em;
+
+}
+
+.navigation ul li a .title
+{
+ position: relative;
+ display: block;
+ padding-left: 20px;
+ height: 60px;
+ line-height: 60px;
+ text-align: center;
+
+}
+
+.navigation ul li a .logout
+{
+ height: 50px;
+ min-width: 70px;
+ border-radius: 12px;
+ line-height: 50px;
+ text-align: center;
+}
+
+</style>
+<body>
+  <div class="navigation">
+    <div class="logo_content">
+      <div class="logo">
+        <i class="bi bi-building"></i>
+        <div class="logo_name">Value</div>
+      </div>
+        <ul>
+          <li class="list active">
+            <a href="#">
+              <span class="icon"><i class="bi bi-house-door"></i></span>
+              <span class="title">Home</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"><i class="bi bi-person"></i></span>
+              <span class="title">Perfil</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="#">
+              <span class="icon"><i class="bi bi-gear"></i></span>
+              <span class="title">Configurações</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="/logouts/">
+              <span class="icon"><i class="bi bi-box-arrow-left"></i></span>
+              <span class="logout">Sair</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>
+</body>
+{% endblock %}
